@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Best GPT-Sites</title>
+  <meta name="description" content="Best GPT-sites" />
+
+  <style>
+    :root{
+      --bg0:#0b1626;
+      --bg1:#0f2237;
+      --gridA:rgba(255,255,255,.05);
+      --gridB:rgba(255,255,255,.02);
+
+      --card:#1d3a57;
+      --card2:#17324d;
+      --stroke:rgba(255,255,255,.10);
+
+      --text:#eaf2ff;
+      --muted:rgba(234,242,255,.70);
+
+      --blue:#2f7bff;
+      --blue2:#2b66ff;
+
+      --pill:#122842;
+      --shadow: 0 20px 50px rgba(0,0,0,.40);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+html, body {
+  height: 100%;
+}
+
+body{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text);
+
+  background:
+    linear-gradient(180deg, rgba(18,40,66,.35), rgba(11,22,38,.85)),
+    radial-gradient(1200px 800px at 10% 10%, rgba(47,123,255,.18), transparent 60%),
+    radial-gradient(900px 700px at 90% 20%, rgba(0,255,179,.10), transparent 60%),
+    radial-gradient(900px 700px at 30% 90%, rgba(255,126,66,.08), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+  overflow-x:hidden;
+}
+
+
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        linear-gradient(to right, var(--gridB) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--gridB) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity:.60;
+      pointer-events:none;
+      mask-image: radial-gradient(80% 60% at 50% 20%, black 60%, transparent 100%);
+    }
+
+.wrap{
+  flex:1;
+  max-width: 1320px;
+  margin: 26px auto 40px;
+  padding: 0 18px;
+}
+
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      position:sticky;
+      top:12px;
+      z-index:50;
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(10,18,32,.35);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      border:1px solid rgba(255,255,255,.15);
+      background: rgba(18,40,66,.55);
+      color: var(--text);
+      padding: 9px 14px;
+      border-radius: 12px;
+      font-weight:700;
+      font-size: 13px;
+      letter-spacing:.2px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .tab:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.25); }
+    .tab.active{
+      background: rgba(47,123,255,.22);
+      border-color: rgba(47,123,255,.55);
+      box-shadow: 0 10px 26px rgba(47,123,255,.16);
+    }
+
+    .search{
+      margin-left:auto;
+      flex: 1 1 320px;
+      min-width: 260px;
+      position:relative;
+    }
+    .search input{
+      width:100%;
+      border-radius: 14px;
+      padding: 11px 42px 11px 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(18,40,66,.35);
+      color: var(--text);
+      outline:none;
+      font-weight: 600;
+    }
+    .search input::placeholder{ color: rgba(234,242,255,.55); font-weight:600; }
+    .search .icon{
+      position:absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity:.8;
+      font-size: 14px;
+    }
+
+
+    .hero{
+      margin: 18px 2px 18px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .hero h1{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      max-width: 720px;
+    }
+    .mini{
+      color: rgba(234,242,255,.75);
+      font-size: 12px;
+      font-weight:700;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(18,40,66,.28);
+      white-space:nowrap;
+    }
+
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+    @media (max-width: 1150px){ .grid{ grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 860px){ .grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 520px){ .grid{ grid-template-columns: 1fr;} .search{min-width: 100%;} }
+
+    .card{
+      position:relative;
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      background: linear-gradient(180deg, rgba(29,58,87,.96), rgba(23,50,77,.96));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-height: 284px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      transition: transform .14s ease, border-color .14s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.18);
+    }
+    .card:before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width: 320px;
+  height: 320px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(47,123,255,.35) 0%,
+    rgba(47,123,255,.25) 25%,
+    rgba(47,123,255,.15) 45%,
+    rgba(47,123,255,.08) 60%,
+    transparent 75%
+  );
+
+  filter: blur(25px);
+  pointer-events:none;
+}
+
+    .badges{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .badge{
+      font-size: 11px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 10px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(10,18,32,.22);
+    }
+    .b-new{ background: rgba(0,255,179,.16); border-color: rgba(0,255,179,.35); }
+    .b-pop{ background: rgba(255,179,0,.16); border-color: rgba(255,179,0,.35); }
+    .b-app{ background: rgba(255,77,159,.16); border-color: rgba(255,77,159,.35); }
+    .b-deal{ background: rgba(64, 255, 47, 0.404); border-color: #d3ffd559; }
+
+    .logo{
+      width: 74px; height: 74px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.20);
+      border:1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .name{
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing:.2px;
+      text-align:center;
+    }
+    .desc{
+      text-align:center;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 1.25rem;
+      min-height: 38px;
+    }
+
+    .stars{
+      display:flex;
+      gap:4px;
+      justify-content:center;
+      margin-top: 2px;
+      user-select:none;
+    }
+    .star{ filter: drop-shadow(0 6px 12px rgba(0,0,0,.25)); }
+    .star.off{ opacity:.25; }
+
+    .spacer{ flex:1 1 auto; }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(47,123,255,.96), rgba(43,102,255,.96));
+      border:1px solid rgba(255,255,255,.10);
+      color:white;
+      text-decoration:none;
+      font-weight: 900;
+      letter-spacing:.2px;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .btn:active{ transform: translateY(0px); }
+
+    .foot{
+      margin-top: 22px;
+      color: rgba(234,242,255,.60);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.35rem;
+    }
+    .foot a{ color: rgba(234,242,255,.78); }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(18,40,66,.28);
+      border:1px solid rgba(255,255,255,.12);
+      color: rgba(234,242,255,.85);
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+.footer{
+  margin-top: 28px;
+  border-radius: 18px;
+  background: rgba(10,18,32,.35);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  padding: 18px;
+}
+
+.footer-inner{
+  display:flex;
+  gap:16px;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+.footer-title{
+  font-weight: 900;
+  letter-spacing:.2px;
+}
+
+.footer-sub{
+  margin-top:6px;
+  color: rgba(234,242,255,.70);
+  font-weight: 650;
+  font-size: 12px;
+  max-width: 720px;
+  line-height: 1.35rem;
+}
+
+.footer-right{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-link{
+  color: rgba(234,242,255,.80);
+  text-decoration:none;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(18,40,66,.25);
+}
+
+.footer-link:hover{
+  border-color: rgba(255,255,255,.18);
+  transform: translateY(-1px);
+}
+
+.footer-bottom{
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(234,242,255,.55);
+  font-weight: 700;
+  font-size: 12px;
+}
+.sort-select{
+  border-radius:12px;
+  padding:8px 10px;
+  background: rgba(18,40,66,.35);
+  border:1px solid rgba(255,255,255,.12);
+  color: var(--text);
+  font-weight:700;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.sort-select:hover{
+  border-color: rgba(255,255,255,.25);
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="nav" id="nav"></div>
+
+      <div class="search">
+        <input id="search" type="search" placeholder="Search by Site, Tag, Description..." autocomplete="off" />
+        <div class="icon">🔎</div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <h1>GPT Sites</h1>
+        <p>An overview of GPT sites.</p>
+      </div>
+<div style="display:flex; gap:10px; align-items:center;">
+
+  <select id="sortSelect" class="sort-select">
+    <option value="default">Sort by</option>
+    <option value="rating">⭐ Popularity</option>
+    <option value="rates">📈 Rates</option>
+  </select>
+
+  <div class="mini" id="count">0 Sites</div>
+
+</div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-title">GPT Sites</div>
+      <div class="footer-sub">
+        Some links are affiliate links. If you register via these links, you will be supporting the project — at no extra cost to you.
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> – All rights reserved</div>
+</footer>
+
+  </div>
+
+<script>
+
+
+  const GLOBAL_AFFILIATE_CODE = "DEIN_CODE";
+  const SITES = [
+    {
+     name: "Earnlab",
+     desc: "80%-90% Rates on Offerwalls",
+     logo: "earnlab_logo.jpg",
+     rating: 5,
+
+     badges: ["Gamdom +25%"],
+     tags: ["sites", "bonus"],
+     affiliateTemplate: "https://earnlab.com/r/claim250",
+    },
+    {
+      name: "Cashinstyle",
+      desc: "90% Rates on Offerwalls",
+      logo: "cis_logo.svg",
+      rating: 5,
+      badges: ["Top Site"],
+      tags: ["sites"],
+      affiliateTemplate: "https://cashinstyle.com/?ref=awatix",
+    },
+    {
+      name: "Gemsloot",
+      desc: "60-80% rates on Offerwalls",
+      logo: "gemsloot_logo.png",
+      rating: 5,
+      badges: ["Roobet +20%"],
+     tags: ["sites", "bonus"],
+      affiliateTemplate: "https://gemsloot.com/?aff=awatix",
+    },
+    {
+      name: "Sparkvey",
+      desc: "New GPT Site | 80% rates on Offerwalls",
+      logo: "Sparkvey_logo.jpg",
+      rating: 5,
+      badges: ["Top Site"],
+      tags: ["sites"],
+      affiliateTemplate: "https://sparkvey.com?ref=awatix",
+    },
+
+    {
+      name: "CoinPayU",
+      desc: "80–85% Rates on Offerwalls",
+      logo: "coinpayu.jpg",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://www.coinpayu.com/?r=Awatix",
+    },
+    {
+      name: "CashTask",
+      desc: "85% Rates on Offerwalls",
+      logo: "cashtask.png",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://cashtask.net/r/K7SU96O",
+    },
+    {
+      name: "Chequity",
+      desc: "80% Rates on Offerwalls",
+      logo: "chequity.jpg",
+      rating: 5,
+
+      tags: ["sites", "deals"],
+      affiliateTemplate: "https://chequity.io/r/74C2F105",
+    },
+    {
+      name: "CashEarn",
+      desc: "80% Rates on Offerwalls",
+      logo: "cashearn.jpg",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://cashearn.gg/r/EL3DWZ5",
+    },
+    {
+      name: "Dollvcash",
+      desc: "85% Rates on Offerwalls",
+      logo: "dollvcash.jpg",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://dollvcash.com/r/v5wbKP",
+    },
+    {
+      name: "Earnloop",
+      desc: "85% Rates on Offerwalls",
+      logo: "earnloop.jpg",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://earnloop.net/r/EKCNHZBAYE",
+    },
+    {
+      name: "RewardXP",
+      desc: "80% Rates on Offerwalls",
+      logo: "rewardxp.jpg",
+      rating: 5,
+
+      tags: ["sites", "apps"],
+      affiliateTemplate: "https://www.rewardxp.com/join/1314050",
+    },
+    {
+      name: "Split Drop",
+      desc: "70% Rates on Offerwalls",
+      logo: "splitdrop.png",
+      rating: 5,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://splitdrop.com/home.html?friend=65925",
+    },
+    {
+      name: "Grindbux",
+      desc: "70% RAtes on Offerwalls",
+      logo: "grindbux.jpg",
+      rating: 4,
+      tags: ["sites"],
+      affiliateTemplate: "https://grindbux.com/ref/awatix",
+    },
+    {
+      name: "TimeBucks",
+      desc: "65% Rates on Offerwalls",
+      logo: "timebucks.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://timebucks.com/?refID=224267647",
+    },
+    {
+      name: "Gain.gg",
+      desc: "70-80% Rates on Offerwalls",
+      logo: "gaingg.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://gain.gg/r/awatix",
+    },
+    {
+      name: "Fastask",
+      desc: "100% Rates WaxRewards",
+      logo: "fastask.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://fastask.net/?ref=1048",
+    },
+
+        {
+      name: "RBXFast",
+      desc: "85% Rates on Offerwalls",
+      logo: "rbxfast.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://rbxfast.com/r/4WDZGH2",
+    },
+    {
+      name: "Cashhut",
+      desc: "75% Rates on Offerwalls",
+      logo: "cashhut.jpg",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://cashhut.net/ref/SR95WT",
+    },
+    {
+      name: "Earnopolis",
+      desc: "85%-95% Rates on Offerwalls",
+      logo: "earnopolis.png",
+      rating: 5,
+
+      tags: ["sites", "apps"],
+      affiliateTemplate: "https://earnopolis.com/r/?r=awatix",
+    },
+    {
+      name: "Cashtipay",
+      desc: "70%-80% Rates on Offerwalls",
+      logo: "cashtipay.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://cashtipay.com/register?referral=awatix",
+    },
+    {
+      name: "Freeward",
+      desc: "70%-80% Rates on Offerwalls",
+      logo: "freeward.avif",
+      
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://freeward.net/ref/1uc7w",
+    },
+    {
+      name: "GG2U",
+      desc: "75%-85% Rates on Offerwalls",
+      logo: "gg2u.jpg",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://premium.gg2u.org?referrer=awatix",
+    },
+    {
+      name: "Gamehag",
+      desc: "70%-80% Rates on Offerwalls",
+      logo: "gamehag.jpg",
+      rating: 3,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://gamehag.com/r/awatix",
+    },
+    {
+      name: "Gimmebux",
+      desc: "65%-75% Rates on Offerwalls",
+      logo: "gimmebux.jpg",
+      rating: 3,
+      badges: ["Stake +15%"],      
+     tags: ["sites", "bonus"],
+      affiliateTemplate: "https://gimmebux.com/r/awatix",
+    },
+
+
+
+            {
+      name: "PaidCash",
+      desc: "70% Rates on Offerwalls",
+      logo: "paidcash.png",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://paidcash.co/r/VJPFJZ",
+    },
+    {
+      name: "RewardFlow",
+      desc: "70%-80% Rates on Offerwalls",
+      logo: "rewardflow.jpg",
+      rating: 4,
+
+      tags: ["sites"],
+      affiliateTemplate: "https://rewardflow.me?ref=AWATIX",
+    },
+    {
+      name: "BambooRush",
+      desc: "65%-75% Rates on Offerwalls",
+      logo: "bamboo.jpg",
+      rating: 3,
+
+      tags: ["sites", "apps"],
+      affiliateTemplate: "https://bamboorush.com?r=B05QTIAP",
+    },
+
+  ];
+
+  const TABS = [
+    { id: "all", label: "Home", filter: () => true },
+  ];
+
+  const els = {
+    nav: document.getElementById("nav"),
+    grid: document.getElementById("grid"),
+    search: document.getElementById("search"),
+    count: document.getElementById("count"),
+  };
+
+  let activeTab = "all";
+  let visibleCount = 8;
+  const LOAD_STEP = 16;
+  let currentSort = "default";
+
+  function badgeClass(text){
+    const t = String(text || "").toLowerCase();
+    if(t.includes("new")) return "b-new";
+    if(t.includes("popular")) return "b-pop";
+    if(t.includes("mobile")) return "b-app";
+    if(t.includes("+") || t.includes("deal")) return "b-deal";
+    return "";
+  }
+
+  function buildLink(site){
+    if(site.affiliateTemplate){
+      const code = site.affiliateCode ?? GLOBAL_AFFILIATE_CODE ?? "";
+      return site.affiliateTemplate.replaceAll("{code}", encodeURIComponent(code));
+    }
+    return site.url || "#";
+  }
+
+  function starsHTML(rating){
+    const full = Math.max(0, Math.min(5, Number(rating)||0));
+    let html = "";
+    for(let i=1;i<=5;i++){
+      html += `<span class="star ${i<=full ? "" : "off"}">⭐</span>`;
+    }
+    return html;
+  }
+
+  function escapeHTML(str){
+    return String(str ?? "")
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+  function escapeAttr(str){ return escapeHTML(str); }
+
+  function extractRate(desc){
+  const text = String(desc || "");
+  const nums = text.match(/\d{2,3}/g);
+  if(!nums) return 0;
+  return Math.max(...nums.map(n => Number(n)));
+}
+
+  function renderNav(){
+    els.nav.innerHTML = TABS.map(t => `
+      <div class="tab ${t.id===activeTab ? "active" : ""}" data-tab="${t.id}">
+        ${t.label}
+      </div>
+    `).join("");
+
+    els.nav.querySelectorAll(".tab").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        activeTab = btn.dataset.tab;
+        visibleCount = 8;
+        renderNav();
+        renderGrid();
+      });
+    });
+  }
+
+function renderGrid(){
+  const q = (els.search.value || "").trim().toLowerCase();
+  const tab = TABS.find(t=>t.id===activeTab) || TABS[0];
+
+  const filtered = SITES
+    .filter(tab.filter)
+    .filter(s=>{
+      if(!q) return true;
+      const hay = [
+        s.name, s.desc,
+        ...(s.badges||[]),
+        ...(s.tags||[])
+      ].join(" ").toLowerCase();
+      return hay.includes(q);
+    });
+
+  if(currentSort === "rating"){
+    filtered.sort((a,b)=> (b.rating || 0) - (a.rating || 0));
+  } else if(currentSort === "rates"){
+    filtered.sort((a,b)=>{
+      const rateA = extractRate(a.desc);
+      const rateB = extractRate(b.desc);
+      return rateB - rateA;
+    });
+  }
+
+  const visibleSites = filtered.slice(0, visibleCount);
+
+  els.count.textContent = `${filtered.length} ${filtered.length===1 ? "Site" : "Sites"}`;
+
+  els.grid.innerHTML = visibleSites.map(s => `
+    <div class="card">
+      <div class="badges">
+        ${(s.badges||[]).slice(0,3).map(b=>`
+          <div class="badge ${badgeClass(b)}">${escapeHTML(b)}</div>
+        `).join("")}
+      </div>
+
+      <div style="display:flex; justify-content:center; margin-top:8px;">
+        <div class="logo">
+          <img src="${escapeAttr(s.logo)}" alt="${escapeAttr(s.name)} Logo" loading="lazy">
+        </div>
+      </div>
+
+      <div class="name">${escapeHTML(s.name)}</div>
+      <div class="desc">${escapeHTML(s.desc || "")}</div>
+
+      <div class="stars">${starsHTML(s.rating)}</div>
+
+      <div class="spacer"></div>
+
+      <a class="btn" href="${escapeAttr(buildLink(s))}" target="_blank" rel="noopener noreferrer">
+        Visit Site ↗
+      </a>
+    </div>
+  `).join("");
+
+  const old = document.getElementById("loadMoreWrap");
+  if(old) old.remove();
+
+  if (visibleCount < filtered.length) {
+    els.grid.insertAdjacentHTML("afterend", `
+      <div style="text-align:center; margin-top:25px;" id="loadMoreWrap">
+        <button id="loadMoreBtn" class="btn" style="max-width:240px; margin:auto;">
+          Show More
+        </button>
+      </div>
+    `);
+
+    document.getElementById("loadMoreBtn").addEventListener("click", ()=>{
+      visibleCount += LOAD_STEP;
+      renderGrid();
+    });
+  }
+}
+
+  els.search.addEventListener("input", ()=>{
+    visibleCount = 8;
+    renderGrid();
+  });
+
+const y = document.getElementById("year");
+if (y) y.textContent = new Date().getFullYear();
+
+  renderNav();
+  renderGrid();
+
+
+
+document.getElementById("sortSelect").addEventListener("change", (e)=>{
+  currentSort = e.target.value;
+  visibleCount = 8;
+  renderGrid();
+});
+
+</script>
+</body>
+</html>
