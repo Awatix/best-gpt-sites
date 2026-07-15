@@ -573,6 +573,31 @@
         border-color var(--fb-transition);
     }
 
+      .featured-card-gotkash {
+      position: relative;
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: var(--fb-radius-xl);
+      border: 1px solid var(--fb-border);
+      color: var(--fb-text);
+      font-family: "Poppins", sans-serif;
+background:
+    radial-gradient(circle at top left, rgba(255,50,50,.16), transparent 30%),
+    radial-gradient(circle at 85% 18%, rgba(160,20,20,.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(255,0,60,.08), transparent 35%),
+    linear-gradient(135deg,#080808 0%,#151922 50%,#040404 100%);
+      box-shadow: var(--fb-shadow);
+      transition:
+        transform var(--fb-transition),
+        box-shadow var(--fb-transition),
+        border-color var(--fb-transition);
+    }
+
     .featured-card:hover {
       border-color: rgba(255, 255, 255, 0.22);
     }
@@ -813,6 +838,45 @@
       </div>
     </section>
 
+        <section class="featured-banner">
+      <div class="featured-banner__inner">
+        <article class="featured-card-gotkash">
+          <div class="featured-card__glow"></div>
+
+          <div class="featured-card__left">
+
+
+            <div class="featured-logo">
+              <img src="gotkash.webp" alt="Gotkash logo">
+            </div>
+
+          </div>
+
+          <div class="featured-card__main">
+            <div class="featured-topline">Exclusive Site · Fast Payouts</div>
+            <h3>Gotkash</h3>
+            <p class="featured-desc">
+              Register now and get an Exclusive 5$ Bonus
+            </p>
+
+          </div>
+
+          
+
+          <aside class="featured-card__side">
+
+
+<a href="https://gotkash.com/r/awatix" 
+   class="featured-button" 
+   target="_blank">
+   Claim 5$
+</a>
+
+          </aside>
+        </article>
+      </div>
+    </section>
+
 
     <div class="hero">
       <div>
@@ -862,7 +926,7 @@
   <script>
 
 
-    const GLOBAL_AFFILIATE_CODE = "DEIN_CODE";
+    const GLOBAL_AFFILIATE_CODE = "";
     const SITES = [
       {
         name: "Earnlab",
